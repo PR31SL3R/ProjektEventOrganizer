@@ -1,0 +1,4 @@
+19/3-2019 19/3-2019 20:00 21:00 19/3-2019 bob bobber null null null 
+19/3-2019 19/3-2019 20:00 21.00 19/3-2019 bob Bachelorfest null null null 
+12123 1213 25445 354435 12123 bob hansen null null null 
+12312 13 12 21 12312 21 12 null null null 
