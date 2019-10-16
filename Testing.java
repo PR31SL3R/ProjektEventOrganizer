@@ -33,7 +33,7 @@ while (lineScan.hasNext())
 }}
 
 
-
+//overload function to write envoice
 static void writer(String[] databasewrite)throws FileNotFoundException{
 try {
 //PrintStream output= new PrintStream(new File("test2.txt"));
@@ -57,40 +57,6 @@ System.out.println("fail");
 }
 
 
-/*
-public static void main(String[] args)throws FileNotFoundException{
-
-
-Testing test = new Testing();
-String[] test123 = {"23","45","56","45","34","23","12","12"};
-test.writer(test123);
-test.reader();
-}
-
-import java.util.*;
-import java.io.*;
-    public class Classname
-    {
-        public static void main(String args[])
-        {
-        File file =new File("file1.txt");
-        Scanner in = null;
-        try {
-            in = new Scanner(file);
-            while(in.hasNext())
-            {
-                String line=in.nextLine();
-                if(line.contains("foo"))
-                    System.out.println(line);
-            }
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }}
-
-*/
 
 }
 

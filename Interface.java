@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.Calendar;
+import java.text.ParseException;
 
 public class Interface {
 
@@ -10,7 +11,7 @@ public class Interface {
    String credentials;
 
 //gets input from user
-	public void getUserInput() throws InterruptedException, FileNotFoundException {
+	public void getUserInput() throws InterruptedException, FileNotFoundException,ParseException {
 		Scanner in = new Scanner(System.in);
       if (flag == true) {
 				System.out.println("Press 1 to create event\nPress 2 to see current events\nPress 3 to update\nPress 4 to delete");
@@ -52,7 +53,7 @@ public class Interface {
 	}
 
 //Runs startup Sequence
-	public void startUpSequence() throws InterruptedException, FileNotFoundException {
+	public void startUpSequence() throws InterruptedException, FileNotFoundException, ParseException {
 
 		System.out.println("Program is booting");
 		  TimeUnit.SECONDS.sleep(3); System.out.println("3......");
@@ -75,13 +76,14 @@ public class Interface {
 		String[] emplyeepassword = { "1234", "1234","1234" };
 		String[] superUser = { "s", "0","0" };
       
+      
+      //use do while instead
 		for (int i = 0; i < emplyees.length; i++) {
          			if ((emplyees[i].equals(credentials)) && (emplyeepassword[i].equals(password))) {
 				System.out.println("welcome to the system " + emplyees[i]);
             this.credentials=emplyees[i];
 				if (superUser[i].equals("s")) {
 					flag = true;
- 
                }
 				
             
@@ -92,21 +94,12 @@ public class Interface {
    
 	}
 
-	public static void main(String[] args) throws InterruptedException, FileNotFoundException {
+	public static void main(String[] args) throws InterruptedException, FileNotFoundException, ParseException {
 		Interface newUser = new Interface();
 		newUser.startUpSequence();
 
 
-      /*
-		Calendar calendar = Calendar.getInstance();
-		System.out.println("The current date is : " + calendar.getTime());
-		calendar.add(Calendar.DATE, -15);
-		System.out.println("15 days ago: " + calendar.getTime());
-		calendar.add(Calendar.MONTH, 4);
-		System.out.println("4 months later: " + calendar.getTime());
-		calendar.add(Calendar.YEAR, 2);
-		System.out.println("2 years later: " + calendar.getTime());
-      */
+      
 	}
 
 }
