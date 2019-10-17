@@ -51,6 +51,8 @@ public class Interface {
             startUpSequence();
             }
 	}
+   
+   
 
 //Runs startup Sequence
 	public void startUpSequence() throws InterruptedException, FileNotFoundException, ParseException {

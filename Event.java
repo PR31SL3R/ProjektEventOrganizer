@@ -26,6 +26,47 @@ Scanner s = new Scanner(System.in);
 
 public String[] eventArray = new String[10];
 
+
+public void editEvent()throws FileNotFoundException{
+
+Scanner input = new Scanner(new File("database.txt"));
+while (input.hasNextLine())
+{String line = input.nextLine();
+if(line.contains("test123")){
+System.out.println(line);
+}}}
+/*
+
+import java.util.*;
+import java.io.*;
+    public class Classname
+    {
+        public static void main(String args[])
+        {
+        File file =new File("file1.txt");
+        Scanner in = null;
+        try {
+            in = new Scanner(file);
+            while(in.hasNext())
+            {
+                String line=in.nextLine();
+                if(line.contains("foo"))
+                    System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }}
+
+*/
+
+
+
+
+
+
 public String[] addEvent()throws FileNotFoundException,ParseException{ 
 
 System.out.println("what date will the event start");
@@ -90,6 +131,9 @@ return price;
 return 1;
 }
 
+
+
+
 public boolean isWeekend(String input_date)throws ParseException{
 
 
@@ -110,8 +154,8 @@ return false;
 public static void main(String[] args)throws FileNotFoundException, ParseException{
 
 Event test = new Event();
-test.addEvent();
-
+//test.addEvent();
+test.editEvent();
       
       
       
