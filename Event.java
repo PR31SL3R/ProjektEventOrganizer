@@ -69,6 +69,8 @@ import java.io.*;
 
 public String[] addEvent()throws FileNotFoundException,ParseException{ 
 
+//Id til eventet
+
 System.out.println("what date will the event start");
 dStart = s.next();
 System.out.println("what date will the event end");
@@ -82,10 +84,13 @@ ansvarlig = s.next();
 System.out.println("beskriv eventet");
 description = s.next();
 
+//dd/MM-yyyy
 eventArray[0]=dStart;
 eventArray[1]=dEnd;
+//10:00
 eventArray[2]=timeStart;
 eventArray[3]=timeEnd;
+//slettes
 eventArray[4]=dStart;
 eventArray[5]=ansvarlig;
 eventArray[6]=description;
@@ -98,6 +103,8 @@ Testing.writer(eventArray);
 
 return eventArray;
 }
+
+
 
 public int eventPrice(String [] eventArray)throws ParseException{
 
