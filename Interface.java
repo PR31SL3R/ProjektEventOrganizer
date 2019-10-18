@@ -6,102 +6,100 @@ import java.text.ParseException;
 
 public class Interface {
 
-	int id;
-	boolean flag = false;
-   String credentials;
+Scanner in = new Scanner(System.in);
+
+String flag;
+String credentials;
 
 //gets input from user
-	public void getUserInput() throws InterruptedException, FileNotFoundException,ParseException {
-		Scanner in = new Scanner(System.in);
-      if (flag == true) {
-				System.out.println("Press 1 to create event\nPress 2 to see current events\nPress 3 to update\nPress 4 to delete");
+	public void getUserInput() throws InterruptedException, FileNotFoundException, ParseException {
 		
+		System.out.println(
+				"Press 1 to create event\nPress 2 to edit events\nPress 3 to update\nPress 4 to delete\nPress 5 to list events\nPress 6 to log-out\nPress 7 to quit");
+		int a = in.nextInt();
+		if (a == 1) {
+			System.out.println("you have pressed 1\nYou can now create a new event\n");
+			Event id = new Event();
+			id.addEvent();
+			getUserInput();
 
+		}
+		if (a == 2) {
+			System.out.println("you have pressed 2\nYou can now edit current events\n");
+			Event event = new Event();
+			Testing test = new Testing();
+			test.reader();
+			event.editEvent();
+			getUserInput();
+		}
+		if (a == 3) {
+			System.out.println("you have pressed 3\nThe program will now update\n");
+			TimeUnit.SECONDS.sleep(3);
+			System.out.println("updating");
+			getUserInput();
+		}
+		if (a == 4) {
+			System.out.println("you have pressed 4\nYou can now delete an event\n");
+			Testing test = new Testing();
+			test.reader();
+			System.out.println("\nPlease enter the eventID of event to be deleted\n");
+			String temp = in.next();
+			test.deleteEvent(temp);
+			getUserInput();
+		}
+		if (a == 5) {
+			System.out.println("you have pressed 5\nYou can now see current events\n");
+			Testing test = new Testing();
+			test.reader();
+			getUserInput();
+		}
+      if (a == 6) {
+			System.out.println("you have pressed 6\nThe System will now logout\n");
+         User user = new User();
+			user.validateUser();
+		}
+      if (a == 7) {
+			System.out.println("you have pressed 7\nThe program will now quit\n");
+			System.exit(0);
+		}
 		
-			int a = in.nextInt();
-			if (a == 1) {
-				System.out.println("you have pressed 1\nYou can now create a new event");
-				id++;
-				Event id = new Event();
-				id.addEvent();
-				getUserInput();
-
-			}
-			if (a == 2) {
-				System.out.println("you have pressed 2\nYou can now see current events");
-				Testing test = new Testing();
-				test.reader();
-				getUserInput();
-			}
-			if (a == 3) {
-				System.out.println("you have pressed 3\nThe program will now update");
-				TimeUnit.SECONDS.sleep(3);
-				System.out.println("updating");
-				getUserInput();
-			}
-			if (a == 4) {
-				System.out.println("you have pressed 4\nYou can now delete an event");
-				getUserInput();
-			} 
-			
-		}else {
-				System.out.println("here are the current events");
-				Testing test = new Testing();
-				test.reader(this.credentials);
-            startUpSequence();
-            }
 	}
-   
-   
 
 //Runs startup Sequence
 	public void startUpSequence() throws InterruptedException, FileNotFoundException, ParseException {
 
 		System.out.println("Program is booting");
-		  TimeUnit.SECONDS.sleep(3); System.out.println("3......");
-		  TimeUnit.SECONDS.sleep(1); System.out.println("2......");
-		  TimeUnit.SECONDS.sleep(1); System.out.println("1......");
-		  TimeUnit.SECONDS.sleep(1); System.out.println("online"); System.out.
-		  println("Hi - I am the interface\nWelcome to the eventplanning program\n");
-		 validateUser();
-		getUserInput();
+		TimeUnit.SECONDS.sleep(3);
+		System.out.println("3......");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("2......");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("1......");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("online");
+		System.out.println("Hi - I am the interface\nWelcome to the eventplanning program\n");
+      User user = new User();
+		user.validateUser();
+		this.flag = user.getFlag();
+      this.credentials = user.getCredentials();
+      
 
 	}
-
-	public void validateUser() {
-		System.out.println("Please enter credentials to log in");
-		Scanner s = new Scanner(System.in);
-		String credentials = s.next();
-		System.out.println("Please enter password");
-		String password = s.next();
-		String[] emplyees = { "jepr85", "bob123", "ben10" };
-		String[] emplyeepassword = { "1234", "1234","1234" };
-		String[] superUser = { "s", "0","0" };
-      
-      
-      //use do while instead
-		for (int i = 0; i < emplyees.length; i++) {
-         			if ((emplyees[i].equals(credentials)) && (emplyeepassword[i].equals(password))) {
-				System.out.println("welcome to the system " + emplyees[i]);
-            this.credentials=emplyees[i];
-				if (superUser[i].equals("s")) {
-					flag = true;
-               }
-				
-            
-          
-			}
-         
-		}
    
-	}
+   public void setFlag(String flag){
+   this.flag = flag;
+   
+   }
+   
+   public void setCredentials(String credentials){
+   this.credentials = credentials;
+   
+   }
 
 	public static void main(String[] args) throws InterruptedException, FileNotFoundException, ParseException {
 		Interface newUser = new Interface();
 		newUser.startUpSequence();
 
-
-      
 	}
 
 }
