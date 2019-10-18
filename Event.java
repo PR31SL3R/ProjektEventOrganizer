@@ -34,7 +34,7 @@ public class Event {
 							editArray[i] = word;
 						}
 					}
-                
+
 				}
 				System.out.println(
 						"what to edit\n1=Eventnavn\n2=facilitator\n3=kunde\n4=startDato\n5=SlutDato\n6=StartTid\n7=SlutTid\n8=SætPris");
@@ -103,12 +103,12 @@ public class Event {
 
 		int firstDayInt = Integer.parseInt(firstDateString.substring(0, 2));
 		int firstMonthInt = Integer.parseInt(firstDateString.substring(3, 4));
-      //int firstYearInt = Integer.parseInt(firstDateString.substring(5,9));
+		// int firstYearInt = Integer.parseInt(firstDateString.substring(5,9));
 		int firstTimeInt = Integer.parseInt(firstTimeString.substring(0, 2) + firstTimeString.substring(3, 5));
 
 		int secondDayInt = Integer.parseInt(secondDateString.substring(0, 2));
 		int secondMonthInt = Integer.parseInt(secondDateString.substring(3, 4));
-      //int secondYearInt = Integer.parseInt(secondDateString.substring(5,9));
+		// int secondYearInt = Integer.parseInt(secondDateString.substring(5,9));
 		int secondTimeInt = Integer.parseInt(secondTimeString.substring(0, 2) + secondTimeString.substring(3, 5));
 
 		if ((firstDayInt - secondDayInt == 0) && (isWeekend(eventArray[4]) == false)
@@ -174,6 +174,5 @@ public class Event {
 		}
 		return false;
 	}
-
 
 }

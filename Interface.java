@@ -6,14 +6,14 @@ import java.text.ParseException;
 
 public class Interface {
 
-Scanner in = new Scanner(System.in);
+	Scanner in = new Scanner(System.in);
 
-String flag;
-String credentials;
+	String flag;
+	String credentials;
 
 //gets input from user
 	public void getUserInput() throws InterruptedException, FileNotFoundException, ParseException {
-		
+
 		System.out.println(
 				"Press 1 to create event\nPress 2 to edit events\nPress 3 to update\nPress 4 to delete\nPress 5 to list events\nPress 6 to log-out\nPress 7 to quit");
 		int a = in.nextInt();
@@ -53,16 +53,16 @@ String credentials;
 			test.reader();
 			getUserInput();
 		}
-      if (a == 6) {
+		if (a == 6) {
 			System.out.println("you have pressed 6\nThe System will now logout\n");
-         User user = new User();
+			User user = new User();
 			user.validateUser();
 		}
-      if (a == 7) {
+		if (a == 7) {
 			System.out.println("you have pressed 7\nThe program will now quit\n");
 			System.exit(0);
 		}
-		
+
 	}
 
 //Runs startup Sequence
@@ -78,23 +78,22 @@ String credentials;
 		TimeUnit.SECONDS.sleep(1);
 		System.out.println("online");
 		System.out.println("Hi - I am the interface\nWelcome to the eventplanning program\n");
-      User user = new User();
+		User user = new User();
 		user.validateUser();
 		this.flag = user.getFlag();
-      this.credentials = user.getCredentials();
-      
+		this.credentials = user.getCredentials();
 
 	}
-   
-   public void setFlag(String flag){
-   this.flag = flag;
-   
-   }
-   
-   public void setCredentials(String credentials){
-   this.credentials = credentials;
-   
-   }
+
+	public void setFlag(String flag) {
+		this.flag = flag;
+
+	}
+
+	public void setCredentials(String credentials) {
+		this.credentials = credentials;
+
+	}
 
 	public static void main(String[] args) throws InterruptedException, FileNotFoundException, ParseException {
 		Interface newUser = new Interface();
