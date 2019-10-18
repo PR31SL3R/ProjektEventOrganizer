@@ -20,16 +20,17 @@ public class Testing {
 
 	static void reader(String credentials) throws FileNotFoundException {
 		String test = credentials;
-		System.out.print(test);
 		Scanner input = new Scanner(new File("database.txt"));
 		while (input.hasNextLine()) {
 			String line = input.nextLine();
+         if(line.contains(test)){
 			System.out.println(line);
-			Scanner lineScan = new Scanner(line);
-			while (lineScan.hasNext()) {
-				String word = lineScan.next();
-//System.out.println(word);
-			}
+         }
+			//Scanner lineScan = new Scanner(line);
+			//while (lineScan.hasNext()) {
+			//	String word = lineScan.next();
+        //System.out.println(word);
+			//}
 		}
 	}
 
@@ -52,14 +53,14 @@ public class Testing {
 	static void writer(String[] databasewrite, String name) throws FileNotFoundException {
 		try {
 
-			PrintStream output = new PrintStream(new FileOutputStream(name + ".txt", true));
+			PrintStream output = new PrintStream(new FileOutputStream(name +"_"+databasewrite[0]+ ".txt", true));
 
 			output.append("Hi, your event number " + databasewrite[0] + " has been booked\n\n");
 			output.append("We are looking forward in hosting your " + databasewrite[1].replace("_", " ") + "\n");
 			output.append("Your event will be facilitated by " + databasewrite[2].replace("_", " ") + "\n");
-			output.append("Plese check details for the event:\nIt will start " + databasewrite[4] + " at "
+			output.append("Plese check details for the event:\nStarting date is " + databasewrite[4] + " at "
 					+ databasewrite[6] + "\n");
-			output.append("Plese check details for the event:\nIt will end " + databasewrite[5] + " at "
+			output.append("\nEvent is set to end " + databasewrite[5] + " at "
 					+ databasewrite[7] + "\n");
 			output.append("Please check details specific for your event \n" + databasewrite[9].replace("_", " "));
 			output.append("Amount owed is " + databasewrite[8] + "dkk");
@@ -88,6 +89,6 @@ public class Testing {
 		}
 		writer.close();
 		reader.close();
-		boolean successful = tempFile.renameTo(inputFile);
+		tempFile.renameTo(inputFile);
 	}
 }

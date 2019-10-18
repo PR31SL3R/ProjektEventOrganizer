@@ -6,7 +6,7 @@ public class User {
 
 	String[] emplyees = { "jepr85", "bob123", "joh123", };
 	String[] emplyeepassword = { "1234", "1234", "1234", };
-	String[] superUser = { "s", "0", "0", };
+	String[] superUser = { "s", "u", "u+", };
 
 	Scanner s = new Scanner(System.in);
 
@@ -24,6 +24,12 @@ public class User {
 
 		return this.credentials;
 	}
+   
+   public void addUser(){
+   
+   
+   
+   }
 
 	public void validateUser() throws InterruptedException, FileNotFoundException, ParseException {
 

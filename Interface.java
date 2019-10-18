@@ -13,10 +13,10 @@ public class Interface {
 
 //gets input from user
 	public void getUserInput() throws InterruptedException, FileNotFoundException, ParseException {
-
+      if (flag.equals("s")){
 		System.out.println(
 				"Press 1 to create event\nPress 2 to edit events\nPress 3 to update\nPress 4 to delete\nPress 5 to list events\nPress 6 to log-out\nPress 7 to quit");
-		int a = in.nextInt();
+            int a = in.nextInt();
 		if (a == 1) {
 			System.out.println("you have pressed 1\nYou can now create a new event\n");
 			Event id = new Event();
@@ -61,7 +61,63 @@ public class Interface {
 		if (a == 7) {
 			System.out.println("you have pressed 7\nThe program will now quit\n");
 			System.exit(0);
+         }
 		}
+      if (flag.equals("u")){
+         System.out.println("Press 1 to see current events\nPress 2 to update program\nPress 3 to logout of system\nPress 4 to quit system");
+         int a = in.nextInt();
+         if (a == 4) {
+			System.out.println("you have pressed 4\nThe program will now quit\n");
+			System.exit(0);
+         }
+         if (a == 2) {
+			System.out.println("you have pressed 2\nThe program will now update\n");
+			TimeUnit.SECONDS.sleep(3);
+			System.out.println("updating");
+			getUserInput();
+		}
+         if (a == 1) {
+			System.out.println("you have pressed 1\nYou can now see current events\n");
+			Testing test = new Testing();
+			test.reader(this.credentials);
+			getUserInput();
+		}  
+         if (a == 3) {
+			System.out.println("you have pressed 3\nThe System will now logout\n");
+			User user = new User();
+			user.validateUser();
+		}
+      
+      
+      }
+      
+      if (flag.equals("u+")){
+         System.out.println("Press 1 to see current events\nPress 2 to update program\nPress 3 to logout of system\nPress 4 to quit system");
+         int a = in.nextInt();
+         if (a == 4) {
+			System.out.println("you have pressed 4\nThe program will now quit\n");
+			System.exit(0);
+         }
+         if (a == 2) {
+			System.out.println("you have pressed 2\nThe program will now update\n");
+			TimeUnit.SECONDS.sleep(3);
+			System.out.println("updating");
+			getUserInput();
+		}
+         if (a == 1) {
+			System.out.println("you have pressed 1\nYou can now see current events\n");
+			Testing test = new Testing();
+			test.reader();
+			getUserInput();
+		}  
+         if (a == 3) {
+			System.out.println("you have pressed 3\nThe System will now logout\n");
+			User user = new User();
+			user.validateUser();
+		}
+      
+      
+      }
 
 	}
 
@@ -102,3 +158,5 @@ public class Interface {
 	}
 
 }
+
+
