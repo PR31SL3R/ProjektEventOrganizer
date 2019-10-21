@@ -48,10 +48,23 @@ public class Event {
 
 		}
 	}
+   
+   public boolean isDateCorrect(String inputDate){
+   DateFormat format = new SimpleDateFormat("dd/MM-yyyy");
+   //means for dateformat to get Strickly parsed
+   format.setLenient(false);
+   String date=inputDate;
+   try{format.parse(date);
+   return true;
+   }
+   catch (ParseException e){
+   return false;
+   }
+   }
+      
 
 	public void addEvent() throws FileNotFoundException, ParseException {
 
-//Id til eventet
 		String eventID = Integer.toString(r.nextInt(10000) + 1);
 		System.out.println("Enter event name:");
 		String eventName = s.nextLine();
@@ -59,17 +72,49 @@ public class Event {
 		System.out.println("Navn på facilitator:");
 		String facilitator = s.nextLine();
 		facilitator = facilitator.replace(" ", "_");
+      while (User.isFacilitator(facilitator)!=true){
+      System.out.println("This person can not be added as a facilitator");
+      System.out.println("Please add one of available facilitators");
+      for (int i =0; i < User.Employees.size();i++){
+      if(User.Flag.get(i).equals("u")){
+      System.out.println(User.Employees.get(i));
+      }}
+      facilitator = s.nextLine();
+      }
 		System.out.println("Customer Name");
 		String costumer = s.nextLine();
 		costumer = costumer.replace(" ", "_");
 		System.out.println("Starting date: dd/mm-yyyy");
 		String startDate = s.nextLine();
+      
+      while (isDateCorrect(startDate)!=true){
+      System.out.println("invalid date please use correct format");
+      System.out.println("Starting date: dd/mm-yyyy");
+      startDate = s.nextLine();
+      }
 		System.out.println("Ending date: dd/mm-yyyy");
 		String endDate = s.nextLine();
+      
+      while (isDateCorrect(endDate)!=true){
+      System.out.println("invalid date please use correct format");
+      System.out.println("Ending date: dd/mm-yyyy");
+      endDate = s.nextLine();
+      }
+
 		System.out.println("Starting time: hh:mm");
 		String startTime = s.nextLine();
+      while (isTimeCorrect(startTime)!=true){
+      System.out.println("invalid time please use correct format");
+      System.out.println("Starting time: hh:mm");
+      startTime = s.nextLine();
+      }
 		System.out.println("Ending time: hh:mm");
 		String endTime = s.nextLine();
+      while (isTimeCorrect(endTime)!=true){
+      System.out.println("invalid time please use correct format");
+      System.out.println("Ending time: hh:mm");
+      endTime = s.nextLine();
+      }
 		System.out.println("Description:");
 		String description = s.nextLine();
 		description = description.replace(" ", "_");
@@ -174,5 +219,18 @@ public class Event {
 		}
 		return false;
 	}
-
+   
+   public boolean isTimeCorrect(String inputTime){
+   String time = inputTime;
+   SimpleDateFormat format2 = new SimpleDateFormat("HH:mm");
+   format2.setLenient(false); 
+try {
+format2.parse(time);
+return true;
+} catch (ParseException e) {
+return false;
+}
+   
+   }
+   
 }

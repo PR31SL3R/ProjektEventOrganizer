@@ -13,7 +13,7 @@ public class Testing {
 			Scanner lineScan = new Scanner(line);
 			while (lineScan.hasNext()) {
 				String word = lineScan.next();
-         //System.out.println(word);
+          //System.out.println(word);
 			}
 		}
 	}
@@ -26,18 +26,11 @@ public class Testing {
          if(line.contains(test)){
 			System.out.println(line);
          }
-			//Scanner lineScan = new Scanner(line);
-			//while (lineScan.hasNext()) {
-			//	String word = lineScan.next();
-        //System.out.println(word);
-			//}
 		}
 	}
 
-//overload function to write envoice
 	static void writer(String[] databasewrite) throws FileNotFoundException {
 		try {
-//PrintStream output= new PrintStream(new File("test2.txt"));
 			PrintStream output = new PrintStream(new FileOutputStream("database.txt", true));
 			for (int i = 0; i < databasewrite.length; i++) {
 				output.append(databasewrite[i] + " ");
@@ -49,7 +42,7 @@ public class Testing {
 		}
 	}
 
-//overload function to write envoice
+//overload writer function to write envoice
 	static void writer(String[] databasewrite, String name) throws FileNotFoundException {
 		try {
 
@@ -63,7 +56,7 @@ public class Testing {
 			output.append("\nEvent is set to end " + databasewrite[5] + " at "
 					+ databasewrite[7] + "\n");
 			output.append("Please check details specific for your event \n" + databasewrite[9].replace("_", " "));
-			output.append("Amount owed is " + databasewrite[8] + "dkk");
+			output.append("\nAmount owed is " + databasewrite[8] + "dkk");
 
 			output.close();
 		}
