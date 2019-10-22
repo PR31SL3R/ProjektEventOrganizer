@@ -1,0 +1,11 @@
+Hi, your event number 1111 has been booked
+
+We are looking forward in hosting your test
+Your event will be facilitated by lima65
+Plese check details for the event:
+Starting date is 30/11-2019 at 10:00
+
+Event is set to end 30/11-2019 at 18:00
+Please check details specific for your event 
+test
+Amount owed is 2400dkk

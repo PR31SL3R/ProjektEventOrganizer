@@ -22,13 +22,11 @@ public class Interface {
             Event id = new Event();
             id.addEvent();
             getUserInput();
-         
          }
          if (a == 2) {
             System.out.println("you have pressed 2\nYou can now edit current events\n");
             Event event = new Event();
-            Testing test = new Testing();
-            test.reader();
+            Testing.reader();
             event.editEvent();
             getUserInput();
          }
@@ -40,17 +38,15 @@ public class Interface {
          }
          if (a == 4) {
             System.out.println("you have pressed 4\nYou can now delete an event\n");
-            Testing test = new Testing();
-            test.reader();
+            Testing.reader();
             System.out.println("\nPlease enter the eventID of event to be deleted\n");
             String temp = in.next();
-            test.deleteEvent(temp);
+            Testing.deleteEvent(temp);
             getUserInput();
          }
          if (a == 5) {
             System.out.println("you have pressed 5\nYou can now see current events\n");
-            Testing test = new Testing();
-            test.reader();
+            Testing.reader();
             getUserInput();
          }
          if (a == 6) {
@@ -84,8 +80,7 @@ public class Interface {
          }
          if (a == 1) {
             System.out.println("you have pressed 1\nYou can now see current events\n");
-            Testing test = new Testing();
-            test.reader(this.credentials);
+            Testing.reader(this.credentials);
             getUserInput();
          }  
          if (a == 3) {
@@ -112,8 +107,7 @@ public class Interface {
          }
          if (a == 1) {
             System.out.println("you have pressed 1\nYou can now see current events\n");
-            Testing test = new Testing();
-            test.reader();
+            Testing.reader();
             getUserInput();
          }  
          if (a == 3) {

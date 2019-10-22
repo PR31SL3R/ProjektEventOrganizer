@@ -1,12 +1,9 @@
-import java.util.Scanner;
 import java.io.*;
-import java.io.FileOutputStream;
 import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Arrays;
+
 
 public class Event {
 
@@ -14,55 +11,7 @@ public class Event {
 	Random r = new Random();
 
 	public String[] eventArray = new String[10];
-
-	public void editEvent() throws FileNotFoundException {
-
-		String[] editArray = new String[10];
-		Scanner input = new Scanner(new File("database.txt"));
-		System.out.println("\nplease chose the eventID of the event to change");
-		String searchString = s.next();
-		while (input.hasNextLine()) {
-			String line = input.nextLine();
-			if (line.contains(searchString)) {
-				System.out.println("tou have chosen to edit this event");
-				System.out.println(line);
-				Scanner lineScan = new Scanner(line);
-				while (lineScan.hasNext()) {
-					for (int i = 0; i < 10; i++) {
-						{
-							String word = lineScan.next();
-							editArray[i] = word;
-						}
-					}
-
-				}
-				System.out.println(
-						"what to edit\n1=Eventnavn\n2=facilitator\n3=kunde\n4=startDato\n5=SlutDato\n6=StartTid\n7=SlutTid\n8=SætPris");
-				int temp123 = s.nextInt();
-				System.out.println("please enter new value");
-				String editValue123 = s.next();
-				editArray[temp123] = editValue123.replace(" ", "_");
-				Testing.deleteEvent(editArray[0]);
-				Testing.writer(editArray);
-			}
-
-		}
-	}
    
-   public boolean isDateCorrect(String inputDate){
-   DateFormat format = new SimpleDateFormat("dd/MM-yyyy");
-   //means for dateformat to get Strickly parsed
-   format.setLenient(false);
-   String date=inputDate;
-   try{format.parse(date);
-   return true;
-   }
-   catch (ParseException e){
-   return false;
-   }
-   }
-      
-
 	public void addEvent() throws FileNotFoundException, ParseException {
 
 		String eventID = Integer.toString(r.nextInt(10000) + 1);
@@ -137,6 +86,40 @@ public class Event {
 		Testing.writer(eventArray, eventArray[3]);
 
 	}
+   
+   public void editEvent() throws FileNotFoundException {
+
+		String[] editArray = new String[10];
+		Scanner input = new Scanner(new File("database.txt"));
+		System.out.println("\nplease chose the eventID of the event to change");
+		String searchString = s.next();
+		while (input.hasNextLine()) {
+			String line = input.nextLine();
+			if (line.contains(searchString)) {
+				System.out.println("tou have chosen to edit this event");
+				System.out.println(line);
+				Scanner lineScan = new Scanner(line);
+				while (lineScan.hasNext()) {
+					for (int i = 0; i < 10; i++) {
+						{
+							String word = lineScan.next();
+							editArray[i] = word;
+						}
+					}
+
+				}
+				System.out.println(
+						"what to edit\n1=Eventnavn\n2=facilitator\n3=kunde\n4=startDato\n5=SlutDato\n6=StartTid\n7=SlutTid\n8=SætPris");
+				int temp123 = s.nextInt();
+				System.out.println("please enter new value");
+				String editValue123 = s.next();
+				editArray[temp123] = editValue123.replace(" ", "_");
+				Testing.deleteEvent(editArray[0]);
+				Testing.writer(editArray);
+			}
+
+		}
+	}
 
 	public int eventPrice(String[] eventArray) throws ParseException {
 
@@ -205,6 +188,19 @@ public class Event {
 
 		return price;
 	}
+   
+   public boolean isDateCorrect(String inputDate){
+   DateFormat format = new SimpleDateFormat("dd/MM-yyyy");
+   //means for dateformat to get Strickly parsed
+   format.setLenient(false);
+   String date=inputDate;
+   try{format.parse(date);
+   return true;
+   }
+   catch (ParseException e){
+   return false;
+   }
+   }
 
 	public boolean isWeekend(String input_date) throws ParseException {
 
@@ -231,6 +227,17 @@ return true;
 return false;
 }
    
+   }
+   
+   public boolean isFaciliatorFree(String inputStartDate, String inputEndDate){
+   String startDate = inputStartDate;
+   String endDate = inputEndDate;
+   
+   //load database for facilitator into array line by line
+   //check startdates
+   //check enddate
+   
+   return true;
    }
    
 }

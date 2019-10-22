@@ -21,6 +21,39 @@ public class User {
       static ArrayList<String>Password=new ArrayList <String>();
       static ArrayList<String>Flag=new ArrayList <String>();
       
+      public void validateUser2() throws InterruptedException, FileNotFoundException, ParseException {
+   
+		System.out.println("Please enter credentials to log in");
+		credentials = s.next();
+		System.out.println("Please enter password");
+		password = s.next();
+		for (int i = 0; i < Employees.size(); i++) {
+			if (Employees.get(i).equals(credentials) == true && Password.get(i).equals(password) == true) {
+				System.out.println("welcome to the system " + Employees.get(i));
+				this.credentials = Employees.get(i);
+				this.flag = Flag.get(i);
+				Interface user = new Interface();
+				user.setCredentials(this.credentials);
+				user.setFlag(this.flag);
+				user.getUserInput();
+
+			}
+
+		}
+		trys++;
+		if (trys == 4) {
+			System.out.println("Final Try");
+			validateUser2();
+		}
+		if (trys == 5) {
+			System.out.println("Validation failed");
+			System.exit(1);
+		}
+		System.out.println("Please try again");
+		validateUser2();
+
+	}
+      
    public void addUser()throws InterruptedException,FileNotFoundException,ParseException{
       
       String nameGenerator = "";
@@ -58,38 +91,6 @@ public class User {
       }while((input2 == 1) || (input2 == 2) || (input2 ==3));
       }
    
-   public void validateUser2() throws InterruptedException, FileNotFoundException, ParseException {
-   
-		System.out.println("Please enter credentials to log in");
-		credentials = s.next();
-		System.out.println("Please enter password");
-		password = s.next();
-		for (int i = 0; i < Employees.size(); i++) {
-			if (Employees.get(i).equals(credentials) == true && Password.get(i).equals(password) == true) {
-				System.out.println("welcome to the system " + Employees.get(i));
-				this.credentials = Employees.get(i);
-				this.flag = Flag.get(i);
-				Interface user = new Interface();
-				user.setCredentials(this.credentials);
-				user.setFlag(this.flag);
-				user.getUserInput();
-
-			}
-
-		}
-		trys++;
-		if (trys == 4) {
-			System.out.println("Final Try");
-			validateUser2();
-		}
-		if (trys == 5) {
-			System.out.println("Validation failed");
-			System.exit(1);
-		}
-		System.out.println("Please try again");
-		validateUser2();
-
-	}
    
    public void mainUsers(){
    

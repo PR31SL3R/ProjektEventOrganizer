@@ -1,20 +1,17 @@
 import java.util.Scanner;
 import java.io.*;
-import java.io.FileOutputStream;
 
 public class Testing {
 
-	public void reader() throws FileNotFoundException {
-
+	static void reader(){
+      try{
 		Scanner input = new Scanner(new File("database.txt"));
 		while (input.hasNextLine()) {
 			String line = input.nextLine();
 			System.out.println(line);
-			Scanner lineScan = new Scanner(line);
-			while (lineScan.hasNext()) {
-				String word = lineScan.next();
-          //System.out.println(word);
-			}
+		}}
+      catch (FileNotFoundException ex) {
+			System.out.println("fail");
 		}
 	}
 
@@ -29,7 +26,7 @@ public class Testing {
 		}
 	}
 
-	static void writer(String[] databasewrite) throws FileNotFoundException {
+	static void writer(String[] databasewrite){
 		try {
 			PrintStream output = new PrintStream(new FileOutputStream("database.txt", true));
 			for (int i = 0; i < databasewrite.length; i++) {
@@ -43,7 +40,7 @@ public class Testing {
 	}
 
 //overload writer function to write envoice
-	static void writer(String[] databasewrite, String name) throws FileNotFoundException {
+	static void writer(String[] databasewrite, String name){
 		try {
 
 			PrintStream output = new PrintStream(new FileOutputStream(name +"_"+databasewrite[0]+ ".txt", true));
@@ -66,8 +63,8 @@ public class Testing {
 		}
 	}
 
-	static void deleteEvent(String eventID) throws FileNotFoundException {
-
+	static void deleteEvent(String eventID){
+      try {
 		File inputFile = new File("database.txt");
 		File tempFile = new File("tempDatabase.txt");
 
@@ -84,4 +81,8 @@ public class Testing {
 		reader.close();
 		tempFile.renameTo(inputFile);
 	}
+   catch (FileNotFoundException ex) {
+			System.out.println("fail");
+		}
+}
 }
