@@ -1,4 +1,4 @@
-/*import java.util.Scanner;
+import java.util.Scanner;
 import java.io.*;
 
 public class Testing {
@@ -85,13 +85,4 @@ public class Testing {
 			System.out.println("fail");
 		}
 }
-}*/
-
-public class Testing{
-
-public static void main(String[] args){
-System.out.println("hej");
-
-}
-
 }
