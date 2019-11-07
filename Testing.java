@@ -87,7 +87,7 @@ public class Testing {
 }
 }*/
 
-public class hej{
+public class Testing{
 
 public static void main(String[] args){
 System.out.println("hej");
