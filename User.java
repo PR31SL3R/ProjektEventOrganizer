@@ -25,7 +25,7 @@ public class User {
    
 		System.out.println("Please enter credentials to log in");
 		credentials = s.next();
-		System.out.println("Please enter password");
+		System.out.println("Please enter passwords");
 		password = s.next();
 		for (int i = 0; i < Employees.size(); i++) {
 			if (Employees.get(i).equals(credentials) == true && Password.get(i).equals(password) == true) {
